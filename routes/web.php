@@ -14,5 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app');
-})->name('app');
+    $data = [
+          'navlist'=> config('navlist'),
+          'seriesList' => config('comics')
+        ];
+    return view('home', $data);
+})->name('home');
+
+//route per characters
+Route::get('/characters', function () {
+    $data = [
+          'navlist'=> config('navlist'),
+          'serieslist' => config('comics')
+        ];
+    return view('characters', $data);
+})->name('characters');
+
+//route per comics 
+Route::get('/comics', function () {
+    $data = [
+          'navlist'=> config('navlist'),
+          'serieslist' => config('comics')
+        ];
+    return view('comics', $data);
+})->name('comics');
+
